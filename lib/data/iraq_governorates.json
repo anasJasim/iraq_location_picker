@@ -1,0 +1,100 @@
+{
+    "countries": [
+        {
+            "countryCode": "IRQ",
+            "name": "Iraq",
+            "governorates": [
+                {
+                    "governorateCode": "IQ-AN",
+                    "countryCode": "IRQ",
+                    "name": "Anbar"
+                },
+                {
+                    "governorateCode": "IQ-BA",
+                    "countryCode": "IRQ",
+                    "name": "Basra"
+                },
+                {
+                    "governorateCode": "IQ-MU",
+                    "countryCode": "IRQ",
+                    "name": "Muthanna"
+                },
+                {
+                    "governorateCode": "IQ-QA",
+                    "countryCode": "IRQ",
+                    "name": "Qadisiya"
+                },
+                {
+                    "governorateCode": "IQ-NA",
+                    "countryCode": "IRQ",
+                    "name": "Najaf"
+                },
+                {
+                    "governorateCode": "IQ-AR",
+                    "countryCode": "IRQ",
+                    "name": "Erbil"
+                },
+                {
+                    "governorateCode": "IQ-SU",
+                    "countryCode": "IRQ",
+                    "name": "Sulaymaniya"
+                },
+                {
+                    "governorateCode": "IQ-BB",
+                    "countryCode": "IRQ",
+                    "name": "Babylon"
+                },
+                {
+                    "governorateCode": "IQ-BG",
+                    "countryCode": "IRQ",
+                    "name": "Bagdad"
+                },
+                {
+                    "governorateCode": "IQ-DA",
+                    "countryCode": "IRQ",
+                    "name": "Duhok"
+                },
+                {
+                    "governorateCode": "IQ-DQ",
+                    "countryCode": "IRQ",
+                    "name": "Dhi Qar"
+                },
+                {
+                    "governorateCode": "IQ-DI",
+                    "countryCode": "IRQ",
+                    "name": "Diyala"
+                },
+                {
+                    "governorateCode": "IQ-KA",
+                    "countryCode": "IRQ",
+                    "name": "Karbala"
+                },
+                {
+                    "governorateCode": "IQ-KI",
+                    "countryCode": "IRQ",
+                    "name": "Kirkuk"
+                },
+                {
+                    "governorateCode": "IQ-MA",
+                    "countryCode": "IRQ",
+                    "name": "Maysan"
+                },
+                {
+                    "governorateCode": "IQ-NI",
+                    "countryCode": "IRQ",
+                    "name": "Nineveh"
+                },
+                {
+                    "governorateCode": "IQ-SD",
+                    "countryCode": "IRQ",
+                    "name": "Saladin"
+                },
+                {
+                    "governorateCode": "IQ-WA",
+                    "countryCode": "IRQ",
+                    "name": "Wasit"
+                }
+            ]
+        }
+    ]
+}
