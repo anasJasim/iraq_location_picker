@@ -37,7 +37,7 @@ jobs:
         run: flutter config --enable-web
 
       - name: Build web
-        run: flutter build web --base-href "/iraq-location-picker/"
+        run: flutter build web --base-href "/iraq_location_picker/"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
