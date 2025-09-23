@@ -5,35 +5,39 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Development Auto",
+            "name": "Example App Auto",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
+            "cwd": "example",
             "args": []
         },
         {
-            "name": "Mac  (dev mode)",
+            "name": "Example App Mac (dev mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
+            "cwd": "example",
             "args": [
                 "--device-id=macos"
             ]
         },
         {
-            "name": "Web  (dev mode)",
+            "name": "Example App Web (dev mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
+            "cwd": "example",
             "args": [
                 "--device-id=chrome"
             ]
         },
         {
-            "name": "Android Emulator (dev mode)",
+            "name": "Example App Android Emulator (dev mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
+            "cwd": "example",
             "args": [
                 "--device-id=emulator"
             ]
