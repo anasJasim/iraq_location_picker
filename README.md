@@ -8,11 +8,11 @@ Try the interactive demo: **[https://anasjasim.github.io/iraq_location_picker/](
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="example/assets/screenshots/location_picker_screenshot.png" alt="Location Picker Widget" width="400"/>
+  <img src="https://raw.githubusercontent.com/anasjasim/iraq_location_picker/main/example/assets/screenshots/location_picker_screenshot.png" alt="Location Picker Widget" width="400"/>
   <br/>
   <em>Main location picker with dropdown and map integration</em>
   <br/><br/>
-  <img src="example/assets/screenshots/map_page_screenshot.png" alt="Interactive Map" width="600"/>
+  <img src="https://raw.githubusercontent.com/anasjasim/iraq_location_picker/main/example/assets/screenshots/map_page_screenshot.png" alt="Interactive Map" width="600"/>
   <br/>
   <em>Interactive map showing all Iraqi governorates with clickable polygons</em>
 </div>
@@ -41,7 +41,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  iraq_location_picker: ^0.1.0
+  iraq_location_picker: ^0.1.1
 ```
 
 ## Usage

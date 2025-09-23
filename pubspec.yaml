@@ -1,9 +1,9 @@
 name: iraq_location_picker
 description: Enhanced location picker for Iraqi governorates with interactive map functionality and traditional dropdown selection.
-version: 0.1.0
-repository: https://github.com/anasjasim/iraq-location-picker
-homepage: https://github.com/anasjasim/iraq-location-picker
-documentation: https://github.com/anasjasim/iraq-location-picker
+version: 0.1.1
+repository: https://github.com/anasjasim/iraq_location_picker
+homepage: https://github.com/anasjasim/iraq_location_picker
+documentation: https://github.com/anasjasim/iraq_location_picker
 
 environment:
   sdk: ">=3.4.0 <4.0.0"

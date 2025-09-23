@@ -1,3 +1,8 @@
+
+## 0.1.1
+
+* fix asset paths in README for pub.dev home page
+
 ## 0.1.0
 
 * Initial release of Iraq Location Picker package
