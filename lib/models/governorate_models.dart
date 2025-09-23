@@ -19,10 +19,10 @@ class IraqGovernorate {
       );
 
   Map<String, dynamic> toJson() => {
-    'governorateCode': governorateCode,
-    'countryCode': countryCode,
-    'name': name,
-  };
+        'governorateCode': governorateCode,
+        'countryCode': countryCode,
+        'name': name,
+      };
 
   @override
   bool operator ==(Object other) =>
@@ -44,30 +44,31 @@ class IraqGovernorate {
 class IraqCountry {
   final String countryCode;
   final String name;
-  final List<IraqGovernorate> cities;
+  final List<IraqGovernorate> governorates;
 
   const IraqCountry({
     required this.countryCode,
     required this.name,
-    required this.cities,
+    required this.governorates,
   });
 
   factory IraqCountry.fromJson(Map<String, dynamic> json) => IraqCountry(
-    countryCode: json['countryCode'] as String,
-    name: json['name'] as String,
-    cities: (json['governorates'] as List)
-        .map(
-          (governorateJson) =>
-              IraqGovernorate.fromJson(governorateJson as Map<String, dynamic>),
-        )
-        .toList(),
-  );
+        countryCode: json['countryCode'] as String,
+        name: json['name'] as String,
+        governorates: (json['governorates'] as List)
+            .map(
+              (governorateJson) => IraqGovernorate.fromJson(
+                  governorateJson as Map<String, dynamic>),
+            )
+            .toList(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'countryCode': countryCode,
-    'name': name,
-    'governorates': cities.map((governorate) => governorate.toJson()).toList(),
-  };
+        'countryCode': countryCode,
+        'name': name,
+        'governorates':
+            governorates.map((governorate) => governorate.toJson()).toList(),
+      };
 
   @override
   bool operator ==(Object other) =>
@@ -76,14 +77,15 @@ class IraqCountry {
           runtimeType == other.runtimeType &&
           countryCode == other.countryCode &&
           name == other.name &&
-          _listEquals(cities, other.cities);
+          _listEquals(governorates, other.governorates);
 
   @override
-  int get hashCode => Object.hash(countryCode, name, Object.hashAll(cities));
+  int get hashCode =>
+      Object.hash(countryCode, name, Object.hashAll(governorates));
 
   @override
   String toString() =>
-      'IraqCountry(countryCode: $countryCode, name: $name, cities: $cities)';
+      'IraqCountry(countryCode: $countryCode, name: $name, governorates: $governorates)';
 
   // Helper method for list equality
   static bool _listEquals<T>(List<T>? a, List<T>? b) {
@@ -112,8 +114,8 @@ class IraqLocationData {
       );
 
   Map<String, dynamic> toJson() => {
-    'countries': countries.map((country) => country.toJson()).toList(),
-  };
+        'countries': countries.map((country) => country.toJson()).toList(),
+      };
 
   factory IraqLocationData.fromJsonString(String jsonString) =>
       IraqLocationData.fromJson(
@@ -122,13 +124,14 @@ class IraqLocationData {
 
   String toJsonString() => json.encode(toJson());
 
-  // Convenience getter to get all Iraqi cities
+  // Convenience getter to get all Iraqi governorates
   List<IraqGovernorate> get iraqGovernorates {
     final iraqCountry = countries.firstWhere(
       (country) => country.countryCode == 'IRQ',
-      orElse: () => const IraqCountry(countryCode: '', name: '', cities: []),
+      orElse: () =>
+          const IraqCountry(countryCode: '', name: '', governorates: []),
     );
-    return iraqCountry.cities;
+    return iraqCountry.governorates;
   }
 
   @override
