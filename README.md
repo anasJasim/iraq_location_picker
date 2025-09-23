@@ -41,12 +41,12 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  iraq_location_picker: ^1.0.0
+  iraq_location_picker: ^0.1.0
 ```
 
 ## Usage
 
-### Iraq Governorate Location Picker
+### Iraq Governorate Picker
 
 ```dart
 import 'package:flutter/material.dart';
@@ -55,7 +55,7 @@ import 'package:iraq_location_picker/iraq_location_picker.dart';
 class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return IraqGovernorateLocationPickerWidget(
+    return IraqGovernoratePicker(
       onGovernorateSelected: (governorate) {
         print('Selected governorate: ${governorate?.governorateCode}');
       },

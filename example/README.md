@@ -20,7 +20,7 @@ Try the interactive demo: **[https://anasjasim.github.io/iraq_location_picker/](
 ## Features Demonstrated
 
 🎯 **Complete Implementation**
-- `IraqGovernorateLocationPickerWidget` with dropdown and map functionality
+- `IraqGovernoratePicker` with dropdown and map functionality
 - Custom display of selected governorate information
 - Interactive map integration
 - Error handling and loading states
@@ -84,7 +84,7 @@ void _onGovernorateSelected(IraqGovernorate? governorate) {
 }
 
 // Widget usage
-IraqGovernorateLocationPickerWidget(
+IraqGovernoratePicker(
   selectedGovernorate: selectedGovernorate,
   onGovernorateSelected: _onGovernorateSelected,
 )
@@ -95,9 +95,10 @@ IraqGovernorateLocationPickerWidget(
 ### Custom Styling
 
 ```dart
-IraqGovernorateLocationPickerWidget(
+IraqGovernoratePicker(
   hintText: 'Choose your location',
   labelText: 'Location',
+  showMapButton: false, // Hide map button if needed
   onGovernorateSelected: _handleSelection,
 )
 ```
@@ -109,7 +110,7 @@ Form(
   child: Column(
     children: [
       TextFormField(/* other fields */),
-      IraqGovernorateLocationPickerWidget(
+      IraqGovernoratePicker(
         selectedGovernorate: _selectedGovernorate,
         onGovernorateSelected: (governorate) {
           setState(() => _selectedGovernorate = governorate);

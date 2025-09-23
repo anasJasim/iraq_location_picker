@@ -4,7 +4,7 @@
 library iraq_location_picker;
 
 // Export main widgets
-export 'widgets/iraq_governorate_location_picker_widget.dart';
+export 'widgets/iraq_governorate_picker.dart';
 export 'widgets/iraq_governorate_dropdown.dart';
 
 // Export data models

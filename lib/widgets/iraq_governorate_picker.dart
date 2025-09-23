@@ -8,28 +8,28 @@ import 'package:iraq_location_picker/utils/location_constants.dart';
 import 'package:iraq_location_picker/utils/theme_utils.dart';
 import 'package:iraq_location_picker/widgets/iraq_governorate_dropdown.dart';
 
-/// A simplified location picker widget with dropdown and interactive map functionality
-class IraqGovernorateLocationPickerWidget extends StatefulWidget {
+/// A location picker widget with dropdown and interactive map functionality for Iraqi governorates
+class IraqGovernoratePicker extends StatefulWidget {
   final Function(IraqGovernorate? governorate)? onGovernorateSelected;
   final IraqGovernorate? selectedGovernorate;
   final String hintText;
   final String labelText;
+  final bool showMapButton;
 
-  const IraqGovernorateLocationPickerWidget({
+  const IraqGovernoratePicker({
     super.key,
     this.onGovernorateSelected,
     this.selectedGovernorate,
     this.hintText = 'Select Iraqi Governorate',
     this.labelText = 'Iraqi Governorate',
+    this.showMapButton = true,
   });
 
   @override
-  State<IraqGovernorateLocationPickerWidget> createState() =>
-      _IraqGovernorateLocationPickerWidgetState();
+  State<IraqGovernoratePicker> createState() => _IraqGovernoratePickerState();
 }
 
-class _IraqGovernorateLocationPickerWidgetState
-    extends State<IraqGovernorateLocationPickerWidget> {
+class _IraqGovernoratePickerState extends State<IraqGovernoratePicker> {
   IraqGovernorate? selectedGovernorate;
   List<IraqGovernorate> governorates = [];
   bool isLoadingGovernorates = true;
@@ -42,7 +42,7 @@ class _IraqGovernorateLocationPickerWidgetState
   }
 
   @override
-  void didUpdateWidget(IraqGovernorateLocationPickerWidget oldWidget) {
+  void didUpdateWidget(IraqGovernoratePicker oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.selectedGovernorate != widget.selectedGovernorate) {
       selectedGovernorate = widget.selectedGovernorate;
@@ -149,11 +149,13 @@ class _IraqGovernorateLocationPickerWidgetState
       isLoading: isLoadingGovernorates,
       hintText: widget.hintText,
       labelText: widget.labelText,
-      trailingIcon: IconButton(
-        icon: const Icon(Icons.map_outlined),
-        onPressed: _openInteractiveMap,
-        tooltip: 'Open interactive map',
-      ),
+      trailingIcon: widget.showMapButton
+          ? IconButton(
+              icon: const Icon(Icons.map_outlined),
+              onPressed: _openInteractiveMap,
+              tooltip: 'Open interactive map',
+            )
+          : null,
     );
   }
 }

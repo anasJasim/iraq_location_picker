@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
               // Location Picker Widget
               SizedBox(
                 width: 300,
-                child: IraqGovernorateLocationPickerWidget(
+                child: IraqGovernoratePicker(
                   selectedGovernorate: selectedGovernorate,
                   onGovernorateSelected: _onGovernorateSelected,
                 ),
