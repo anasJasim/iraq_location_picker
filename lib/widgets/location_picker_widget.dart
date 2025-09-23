@@ -74,7 +74,6 @@ class _LocationPickerWidgetState extends State<LocationPickerWidget> {
           borderStrokeWidth: 3,
           color: primaryGreenColor.withAlpha((0.4 * 255).toInt()),
           label: feature.properties.governorateName,
-          labelPlacementCalculator: PolygonLabelPlacementCalculator.polylabel(),
           hitValue: feature.properties.governorateCode,
         );
       }).toList();

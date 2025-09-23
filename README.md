@@ -20,42 +20,79 @@ Enhanced location picker beyond a simple dropdown using Flutter with interactive
 - **End Users**: Quickly see stores available in each region  
 - **Enhanced UX**: A 'cool' interactive option alongside normal dropdowns
 
-## Project Structure
+## Installation
 
-```
-lib/
-├── data/               # JSON data files
-├── models/             # Data models and structures
-├── pages/              # Application pages
-├── utils/              # Constants and utilities
-├── widgets/            # Reusable UI components
-└── main.dart          # Application entry point
+Add this to your package's `pubspec.yaml` file:
+
+```yaml
+dependencies:
+  iraq_location_picker: ^1.0.0
 ```
 
-## Key Components
+## Usage
 
-- `LocationPickerWidget`: Main widget combining dropdown and map
-- `GovernorateDropdown`: Traditional dropdown with trailing icon
-- `InteractiveMapPage`: Full-screen map for governorate selection
-- Iraq GeoJSON data with all 18 governorates
+### Simple Location Picker
 
-## Getting Started
+```dart
+import 'package:flutter/material.dart';
+import 'package:iraq_location_picker/iraq_location_picker.dart';
 
-1. **Clone the repository**
-```bash
-git clone <repository-url>
-cd iraq_location_picker
+class MyWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return LocationPickerWidget(
+      onLocationSelected: (governorateCode) {
+        print('Selected governorate: $governorateCode');
+      },
+    );
+  }
+}
 ```
 
-2. **Install dependencies**
-```bash
-flutter pub get
+### Governorate Dropdown Only
+
+```dart
+import 'package:iraq_location_picker/iraq_location_picker.dart';
+
+GovernorateDropdown(
+  selectedGovernorate: selectedGovernorate,
+  onGovernorateSelected: (governorate) {
+    // Handle selection
+  },
+  governorates: governorates,
+  isLoading: false,
+)
 ```
 
-3. **Run the app**
-```bash
-flutter run
+### Interactive Map
+
+```dart
+import 'package:iraq_location_picker/iraq_location_picker.dart';
+
+// Show interactive map
+await showInteractiveMap(
+  context,
+  initialLocation: centerOfIraq,
+  initialZoom: 6.5,
+  polygons: polygons,
+  title: 'Select Iraqi Governorate',
+  onPolygonHit: (hitValues) {
+    // Handle governorate selection
+  },
+);
 ```
+
+## Data Models
+
+The package provides several data models:
+
+- `IraqGovernorate`: Represents a single governorate
+- `IraqLocationData`: Contains all location data
+- `GeoJsonData`: For handling map polygon data
+
+## Example
+
+See the `example/` folder for a complete implementation.
 
 ## Dependencies
 
@@ -67,6 +104,9 @@ flutter run
 - Iraqi governorates GeoJSON boundary data from [geoBoundaries](https://www.geoboundaries.org)
 - Governorate names and codes in Arabic/English
 
+## License
+
+MIT License - see LICENSE file for details.
 
 ## Acknowledgements
 

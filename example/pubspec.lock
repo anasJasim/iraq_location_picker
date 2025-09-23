@@ -107,6 +107,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.20.2"
+  iraq_location_picker:
+    dependency: "direct main"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "1.0.0"
   latlong2:
     dependency: "direct main"
     description:
