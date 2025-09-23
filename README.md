@@ -2,6 +2,21 @@
 
 Enhanced location picker beyond a simple dropdown using Flutter with interactive map functionality.
 
+## 🌐 Live Demo
+Try the interactive demo: **[https://anasjasim.github.io/iraq_location_picker/](https://anasjasim.github.io/iraq_location_picker/)**
+
+## 📸 Screenshots
+
+<div align="center">
+  <img src="example/assets/screenshots/location_picker_screenshot.png" alt="Location Picker Widget" width="400"/>
+  <br/>
+  <em>Main location picker with dropdown and map integration</em>
+  <br/><br/>
+  <img src="example/assets/screenshots/map_page_screenshot.png" alt="Interactive Map" width="600"/>
+  <br/>
+  <em>Interactive map showing all Iraqi governorates with clickable polygons</em>
+</div>
+
 ## Features
 
 🗺️ **Interactive Map Selection**

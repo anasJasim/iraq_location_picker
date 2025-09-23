@@ -2,6 +2,21 @@
 
 This example demonstrates how to use the Iraq Location Picker package in a Flutter application.
 
+## 🌐 Live Demo
+Try the interactive demo: **[https://anasjasim.github.io/iraq_location_picker/](https://anasjasim.github.io/iraq_location_picker/)**
+
+## 📸 Screenshots
+
+<div align="center">
+  <img src="assets/screenshots/location_picker_screenshot.png" alt="Location Picker Widget" width="400"/>
+  <br/>
+  <em>Main location picker with dropdown and map integration</em>
+  <br/><br/>
+  <img src="assets/screenshots/map_page_screenshot.png" alt="Interactive Map" width="600"/>
+  <br/>
+  <em>Interactive map showing all Iraqi governorates with clickable polygons</em>
+</div>
+
 ## Features Demonstrated
 
 🎯 **Complete Implementation**
