@@ -31,7 +31,7 @@ dependencies:
 
 ## Usage
 
-### Simple Location Picker
+### Iraq Governorate Location Picker
 
 ```dart
 import 'package:flutter/material.dart';
@@ -40,21 +40,21 @@ import 'package:iraq_location_picker/iraq_location_picker.dart';
 class MyWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return LocationPickerWidget(
-      onLocationSelected: (governorateCode) {
-        print('Selected governorate: $governorateCode');
+    return IraqGovernorateLocationPickerWidget(
+      onGovernorateSelected: (governorate) {
+        print('Selected governorate: ${governorate?.governorateCode}');
       },
     );
   }
 }
 ```
 
-### Governorate Dropdown Only
+### Iraq Governorate Dropdown Only
 
 ```dart
 import 'package:iraq_location_picker/iraq_location_picker.dart';
 
-GovernorateDropdown(
+IraqGovernorateDropdown(
   selectedGovernorate: selectedGovernorate,
   onGovernorateSelected: (governorate) {
     // Handle selection

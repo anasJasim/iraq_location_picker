@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:iraq_location_picker/iraq_location_picker.dart';
+import 'package:iraq_location_picker/models/geojson_models.dart';
+import 'package:iraq_location_picker/models/governorate_models.dart';
+import 'package:iraq_location_picker/pages/interactive_map_page.dart';
+import 'package:iraq_location_picker/utils/location_constants.dart';
+import 'package:iraq_location_picker/utils/theme_utils.dart';
+import 'package:iraq_location_picker/widgets/iraq_governorate_dropdown.dart';
 
-/// Main location picker widget that combines dropdown and interactive map
-class LocationPickerWidget extends StatefulWidget {
-  final Function(String? governorateCode)? onLocationSelected;
+/// A simplified location picker widget with dropdown and interactive map functionality
+class IraqGovernorateLocationPickerWidget extends StatefulWidget {
+  final Function(IraqGovernorate? governorate)? onGovernorateSelected;
+  final IraqGovernorate? selectedGovernorate;
+  final String hintText;
+  final String labelText;
 
-  const LocationPickerWidget({super.key, this.onLocationSelected});
+  const IraqGovernorateLocationPickerWidget({
+    super.key,
+    this.onGovernorateSelected,
+    this.selectedGovernorate,
+    this.hintText = 'Select Iraqi Governorate',
+    this.labelText = 'Iraqi Governorate',
+  });
 
   @override
-  State<LocationPickerWidget> createState() => _LocationPickerWidgetState();
+  State<IraqGovernorateLocationPickerWidget> createState() =>
+      _IraqGovernorateLocationPickerWidgetState();
 }
 
-class _LocationPickerWidgetState extends State<LocationPickerWidget> {
+class _IraqGovernorateLocationPickerWidgetState
+    extends State<IraqGovernorateLocationPickerWidget> {
   IraqGovernorate? selectedGovernorate;
   List<IraqGovernorate> governorates = [];
   bool isLoadingGovernorates = true;
@@ -21,7 +37,16 @@ class _LocationPickerWidgetState extends State<LocationPickerWidget> {
   @override
   void initState() {
     super.initState();
+    selectedGovernorate = widget.selectedGovernorate;
     _loadGovernorates();
+  }
+
+  @override
+  void didUpdateWidget(IraqGovernorateLocationPickerWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.selectedGovernorate != widget.selectedGovernorate) {
+      selectedGovernorate = widget.selectedGovernorate;
+    }
   }
 
   Future<void> _loadGovernorates() async {
@@ -112,78 +137,23 @@ class _LocationPickerWidgetState extends State<LocationPickerWidget> {
     setState(() {
       selectedGovernorate = governorate;
     });
-    widget.onLocationSelected?.call(governorate?.governorateCode);
+    widget.onGovernorateSelected?.call(governorate);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        const Icon(Icons.location_on, size: 64, color: Colors.green),
-        const SizedBox(height: 20),
-        const Text(
-          'Iraq Location Picker',
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 8),
-        const Text(
-          'Enhanced location picker with interactive map',
-          style: TextStyle(fontSize: 14, color: Colors.grey),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 30),
-
-        // Governorate dropdown with map button
-        SizedBox(
-          width: 300,
-          child: IraqGovernorateDropdown(
-            selectedGovernorate: selectedGovernorate,
-            onGovernorateSelected: _onGovernorateSelected,
-            governorates: governorates,
-            isLoading: isLoadingGovernorates,
-            trailingIcon: IconButton(
-              icon: const Icon(Icons.map_outlined),
-              onPressed: _openInteractiveMap,
-              tooltip: 'Open interactive map',
-            ),
-          ),
-        ),
-
-        // Selected governorate display
-        if (selectedGovernorate != null) ...[
-          const SizedBox(height: 20),
-          SizedBox(
-            width: 300,
-            child: Card(
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Column(
-                  children: [
-                    const Text(
-                      'Selected Governorate:',
-                      style: TextStyle(fontSize: 14, color: Colors.grey),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(
-                      selectedGovernorate!.name,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.green,
-                      ),
-                    ),
-                    Text(
-                      'Code: ${selectedGovernorate!.governorateCode}',
-                      style: const TextStyle(fontSize: 14, color: Colors.grey),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ],
+    return IraqGovernorateDropdown(
+      selectedGovernorate: selectedGovernorate,
+      onGovernorateSelected: _onGovernorateSelected,
+      governorates: governorates,
+      isLoading: isLoadingGovernorates,
+      hintText: widget.hintText,
+      labelText: widget.labelText,
+      trailingIcon: IconButton(
+        icon: const Icon(Icons.map_outlined),
+        onPressed: _openInteractiveMap,
+        tooltip: 'Open interactive map',
+      ),
     );
   }
 }

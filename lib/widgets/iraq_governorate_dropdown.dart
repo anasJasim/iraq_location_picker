@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:iraq_location_picker/models/governorate_models.dart';
 
 /// A dropdown widget for selecting Iraqi governorates with optional trailing icon
-class GovernorateDropdown extends StatefulWidget {
+class IraqGovernorateDropdown extends StatefulWidget {
   final IraqGovernorate? selectedGovernorate;
   final Function(IraqGovernorate?) onGovernorateSelected;
   final List<IraqGovernorate> governorates;
@@ -11,7 +11,7 @@ class GovernorateDropdown extends StatefulWidget {
   final String hintText;
   final String labelText;
 
-  const GovernorateDropdown({
+  const IraqGovernorateDropdown({
     super.key,
     this.selectedGovernorate,
     required this.onGovernorateSelected,
@@ -23,10 +23,10 @@ class GovernorateDropdown extends StatefulWidget {
   });
 
   @override
-  State<GovernorateDropdown> createState() => _GovernorateDropdownState();
+  State<IraqGovernorateDropdown> createState() => _IraqGovernorateDropdownState();
 }
 
-class _GovernorateDropdownState extends State<GovernorateDropdown> {
+class _IraqGovernorateDropdownState extends State<IraqGovernorateDropdown> {
   @override
   Widget build(BuildContext context) {
     if (widget.isLoading) {
